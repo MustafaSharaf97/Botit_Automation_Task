@@ -10,8 +10,6 @@ public class editPage extends PageBase {
         super(driver);
     }
 
-    @FindBy(name = "en_name")
-    WebElement foodOriginalPlateField;
     @FindBy(name = "mainPrice")
     WebElement priceField;
 
@@ -28,8 +26,5 @@ public class editPage extends PageBase {
         priceField.sendKeys(price);
         saveAndexitButton.click();
 
-    }
-    public WebElement getFoodOriginalPlateField() {
-        return foodOriginalPlateField;
     }
 }

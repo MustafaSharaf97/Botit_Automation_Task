@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import javax.swing.text.html.CSS;
 import java.util.List;
 
 
@@ -15,11 +16,26 @@ public class HomePage extends PageBase {
     WebElement itemsTab;
 
     @FindBy(linkText = "Edit")
-    List<WebElement> editButton;
+    WebElement editButton;
+
+    @FindBy(css = "div.left-itemcontainer")
+    List <WebElement> itemContainer;
 
 
-    public void clickOnEditForFoulPlate ()  {
+    public void clickOnItemTab () {
         itemsTab.click();
-        editButton.get(2).click();
     }
+
+    public void selectItem(String name) {
+        for (WebElement item:itemContainer)
+        {
+            String itemSearchedFor=item.getText();
+            if (itemSearchedFor==name)
+                break;;
+        }
+    }
+    public void clickOnEditButton() {
+        editButton.click();
+    }
+
 }
